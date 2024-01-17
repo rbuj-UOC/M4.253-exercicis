@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Exercise 9</title>
+  <style>
+    body {
+      /* Prevents the user from selecting text on the page */
+      user-select: none;
+    }
+
+    .dropzone {
+      width: 200px;
+      height: 150px;
+      background: #ccc;
+      margin: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>List 1</h1>
+
+  <ul id="draggable-list">
+    <li draggable="true">1</li>
+    <li draggable="true">2</li>
+    <li draggable="true">3</li>
+  </ul>
+
+  <h1>List 2</h1>
+
+  <ul class="dropzone" id="drop-target">
+    <li draggable="true">4</li>
+    <li draggable="true">5</li>
+    <li draggable="true">6</li>
+  </ul>
+
+  <script type="text/javascript">
+    let dragged = null;
+    const list = document.getElementById("draggable-list");
+    list.addEventListener("dragstart", (event) => {
+      // Store the reference of the dragged element.
+      dragged = event.target;
+    });
+    const target = document.getElementById("drop-target");
+    target.addEventListener("dragover", (event) => {
+      // Prevent the default behavior to allow drop
+      event.preventDefault();
+    });
+    target.addEventListener("drop", (event) => {
+      // Prevent the default behavior (open as link for some elements)
+      event.preventDefault();
+      // Move the dragged item to the selected target item
+      if (event.target.className === "dropzone") {
+        // Get the value of the dragged element
+        const draggedValue = parseInt(dragged.textContent, 10);
+        // Find the position to insert the element into the list
+        let insertBefore = null;
+        for (const child of event.target.children) {
+          const childValue = parseInt(child.textContent, 10);
+          if (childValue > draggedValue) {
+            insertBefore = child;
+            break;
+          }
+        }
+        // Insert the element in the right position
+        event.target.insertBefore(dragged, insertBefore);
+      }
+    });
+  </script>
+</body>
+
+</html>

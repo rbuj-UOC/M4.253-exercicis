@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 5</title>
+</head>
+
+<body>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+  <script>
+    for (const li of document.querySelectorAll("li")) {
+      const button = document.createElement("button");
+      button.textContent = "Click Me!";
+      li.appendChild(button);
+    }
+  </script>
+</body>
+
+</html>

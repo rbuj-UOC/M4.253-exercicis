@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 7</title>
+</head>
+
+<body>
+  <script>
+    const data = [
+      { name: 'Joan', age: 30 },
+      { name: 'Pau', age: 25 },
+      { name: 'Miquel', age: 28 }
+    ];
+    const table = document.createElement('table');
+    let tr = document.createElement('tr');
+    let th = document.createElement('th');
+    let text = document.createTextNode("Name");
+
+    th.appendChild(text);
+    tr.appendChild(th);
+
+    th = document.createElement('th');
+    text = document.createTextNode("Age");
+
+    tr.appendChild(text);
+
+    for (const person of data) {
+      tr = document.createElement('tr');
+
+      let td = document.createElement('td');
+      text = document.createTextNode(person.name);
+      td.appendChild(text);
+      tr.appendChild(td);
+
+      td = document.createElement('td');
+      text = document.createTextNode(person.age);
+      td.append(text);
+      tr.appendChild(td);
+
+      table.appendChild(tr);
+    }
+    document.body.appendChild(table);
+  </script>
+</body>
+
+</html>

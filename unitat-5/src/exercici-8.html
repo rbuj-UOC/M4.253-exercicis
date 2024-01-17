@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 8</title>
+</head>
+
+<body>
+  <form id="add-item-form">
+    <label for="new-item-input">File a new item:</label>
+    <input type="text" id="new-item-input" required>
+    <button type="submit">Add</button>
+  </form>
+  <ul id="item-list"></ul>
+  <script type="text/javascript">
+    function addItem() {
+      event.preventDefault();
+
+      const input = document.querySelector("#new-item-input");
+      const list = document.querySelector("#item-list");
+      const li = document.createElement("li");
+      const text = document.createTextNode(input.value);
+
+      li.appendChild(text);
+      list.appendChild(li);
+      input.value = "";
+    }
+
+    const form = document.querySelector("#add-item-form");
+    form.addEventListener('submit', addItem);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise 6</title>
+</head>
+
+<body>
+  <img src="https://via.placeholder.com/150/0000FF/808080" alt="img1" />
+  <img src="https://via.placeholder.com/150/606060/808080" alt="img2" />
+  <img src="https://via.placeholder.com/150/FF0000/808080" alt="img3" />
+  <script>
+    for (const image of document.querySelectorAll("img")) {
+      image.width = 200;
+      image.height = 200;
+      image.src = "https://picsum.photos/300";
+    }
+  </script>
+</body>
+
+</html>
